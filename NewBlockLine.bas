@@ -1,5 +1,5 @@
-Attribute VB_Name = "Module2"
-Sub O˜gì¬()
+Attribute VB_Name = "NewBlockLine"
+Public Sub O˜gì¬()
 Attribute O˜gì¬.VB_ProcData.VB_Invoke_Func = "R\n14"
 '
 ' ˜g‰¡•’ù³ Macro
@@ -22,11 +22,11 @@ Attribute O˜gì¬.VB_ProcData.VB_Invoke_Func = "R\n14"
     Selection.ShapeRange.Fill.Visible = msoFalse
     'ˆÊ’uC³ Œ»İƒZƒ‹‚É
     Selection.Top = ActiveCell.Top
-    Selection.Left = 56
+    Selection.Left = 50
     
 End Sub
 
-Sub l˜gì¬()
+Public Sub l˜gì¬()
 Attribute l˜gì¬.VB_ProcData.VB_Invoke_Func = "E\n14"
 '
 ' ˜g‰¡•’ù³ Macro

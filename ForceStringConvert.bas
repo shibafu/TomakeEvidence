@@ -1,4 +1,4 @@
-Attribute VB_Name = "Module6"
+Attribute VB_Name = "ForceStringConvert"
 
 'コピーしたセルを強制的に文字列形式に変換する。
 'そのシートのマクロにコピーして使う！

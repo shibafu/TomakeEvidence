@@ -1,5 +1,5 @@
-Attribute VB_Name = "Module4"
-Sub set_all()
+Attribute VB_Name = "XlsxHeaderUpdate"
+Private Sub set_all()
      fns = get_filenames()
      '”z—ñ‚Ì•¶š”•ªÀs
      For Each fn In fns
