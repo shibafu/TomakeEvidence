@@ -2,61 +2,61 @@ Declare Function OpenClipboard Lib "user32" (Optional ByVal hwnd As Long = 0) As
 Declare Function CloseClipboard Lib "user32" () As Long
 Declare Function EmptyClipboard Lib "user32" () As Long
 
-'ŒJ‚è•Ô‚µƒtƒ‰ƒO
+'ç¹°ã‚Šè¿”ã—ãƒ•ãƒ©ã‚°
 Public isLogging As Boolean
-'•Ï‚¦‚és”¦g‚Á‚Ä‚È‚¢
-Public LocalOffset As Load
+'å¤‰ãˆã‚‹è¡Œæ•°â€»ä½¿ã£ã¦ãªã„
+Public LocalOffset As Long
 
-'ƒXƒNƒŠ[ƒ“ƒVƒ‡ƒbƒg‚ªƒNƒŠƒbƒvƒ{[ƒh‚ÉƒRƒs[‚³‚ê‚é‚Æ
-'ƒGƒNƒZƒ‹‚É©“®‚Å’£‚è•t‚¯‚é
+'ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‚·ãƒ§ãƒƒãƒˆãŒã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ã‚³ãƒ”ãƒ¼ã•ã‚Œã‚‹ã¨
+'ã‚¨ã‚¯ã‚»ãƒ«ã«è‡ªå‹•ã§å¼µã‚Šä»˜ã‘ã‚‹
 
-'ƒLƒƒƒvƒ`ƒƒ[ƒ‚[ƒh‚ğ‹N“®‚·‚é
+'ã‚­ãƒ£ãƒ—ãƒãƒ£ãƒ¼ãƒ¢ãƒ¼ãƒ‰ã‚’èµ·å‹•ã™ã‚‹
 Public Sub Capture()
 
-    MsgBox "ƒGƒrƒfƒ“ƒX‚Ì©“®“\‚è•t‚¯‚ğŠJn‚µ‚Ü‚·"
+    MsgBox "ã‚¨ãƒ“ãƒ‡ãƒ³ã‚¹ã®è‡ªå‹•è²¼ã‚Šä»˜ã‘ã‚’é–‹å§‹ã—ã¾ã™"
     
-    'ESCƒL[‚Å’â~
+    'ESCã‚­ãƒ¼ã§åœæ­¢
     Application.OnKey "{ESC}", "StopCapture"
     
-    'ƒNƒŠƒbƒvƒ{[ƒh‚ğ‹ó‚É‚·‚é
+    'ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã‚’ç©ºã«ã™ã‚‹
     a = OpenClipboard()
     a = EmptyClipboard()
     a = CloseClipboard()
     
     
-    'ŒJ‚è•Ô‚µƒtƒ‰ƒO‚ğƒIƒ“‚É‚·‚é
+    'ç¹°ã‚Šè¿”ã—ãƒ•ãƒ©ã‚°ã‚’ã‚ªãƒ³ã«ã™ã‚‹
     isLogging = True
     
-    '‰æ‘œ‚ªƒNƒŠƒbƒvƒ{[ƒh‚É•Û‘¶‚³‚ê‚½‚ç‹N“®
+    'ç”»åƒãŒã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ä¿å­˜ã•ã‚ŒãŸã‚‰èµ·å‹•
     If Application.ClipboardFormats(1) = xlClipboardFormatBitmap Then
     
-        '“\‚è•t‚¯
+        'è²¼ã‚Šä»˜ã‘
         ActiveSheet.Paste
-        'Œ»İƒZƒ‹‚©‚ç10‚µ‚½‚ÉˆÚ“®
+        'ç¾åœ¨ã‚»ãƒ«ã‹ã‚‰10ã—ãŸã«ç§»å‹•
         ActiveSheet.Offset(10, 0).Select
         
-            'ƒNƒŠƒbƒvƒ{[ƒh‚ğ‹ó‚É‚·‚é
+            'ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã‚’ç©ºã«ã™ã‚‹
             a = OpenClipboard()
             a = EmptyClipboard()
             a = CloseClipboard()
     
     End If
     
-    '1•bŠÔŠu CaptureŠÖ”‚ğ‹N“®‚·‚é
+    '1ç§’é–“éš” Captureé–¢æ•°ã‚’èµ·å‹•ã™ã‚‹
     Application.OnTime Now + TimeValue("00:00:01"), "Capture", , isLogging
     
     Exit Sub
 
 End Sub
 
-'ƒLƒƒƒvƒ`ƒƒ[ƒ‚[ƒh‚ğ’â~‚·‚é
+'ã‚­ãƒ£ãƒ—ãƒãƒ£ãƒ¼ãƒ¢ãƒ¼ãƒ‰ã‚’åœæ­¢ã™ã‚‹
 Public Sub StopCapture()
 
-    'ESC‚Ö‚ÌƒL[“o˜^‚ğ‰ğœ‚·‚é
+    'ESCã¸ã®ã‚­ãƒ¼ç™»éŒ²ã‚’è§£é™¤ã™ã‚‹
     Application.OnKey "{ESC}", ""
-    'ŒJ‚è•Ô‚µƒtƒ‰ƒO‚ğƒIƒt‚É
+    'ç¹°ã‚Šè¿”ã—ãƒ•ãƒ©ã‚°ã‚’ã‚ªãƒ•ã«
     isLogging = False
     
-    MsgBox "ƒLƒƒƒvƒ`ƒƒ‚Ìæ“¾‚ğ’â~‚µ‚Ü‚µ‚½"
+    MsgBox "ã‚­ãƒ£ãƒ—ãƒãƒ£ã®å–å¾—ã‚’åœæ­¢ã—ã¾ã—ãŸ"
     
 End Sub
