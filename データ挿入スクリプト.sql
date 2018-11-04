@@ -1,7 +1,7 @@
-/*** myƒe[ƒuƒ‹@ƒpƒ^[ƒ“ ***/
-INSERT INTO  mytable (Id,Name,Data,Kind,Expression)VALUES('1','1001','Œ»‹à','1','‚¨‚Á‚Ï‚¢')
-INSERT INTO  mytable (Id,Name,Data,Kind,Expression)VALUES('2','1002','Š”','2','ƒIƒ€ƒ‰ƒCƒX')
-INSERT INTO  mytable (Id,Name,Data,Kind,Expression)VALUES('3','1003','ŒÂl‰½‚Æ‚©','3','‚ ‚Ö‚¥')
+/*** myãƒ†ãƒ¼ãƒ–ãƒ«ã€€ãƒ‘ã‚¿ãƒ¼ãƒ³ ***/
+INSERT INTO  mytable (Id,Name,Data,Kind,Expression)VALUES('1','1001','ç¾é‡‘','1','ä½•ã‹ã®æ ª')
+INSERT INTO  mytable (Id,Name,Data,Kind,Expression)VALUES('2','1002','æ ª','2','ã‚ªãƒ ãƒ©ã‚¤ã‚¹')
+INSERT INTO  mytable (Id,Name,Data,Kind,Expression)VALUES('3','1003','å€‹äººä½•ã¨ã‹','3','ç‰©å“ãªã‚“ã¨ã‹')
 INSERT INTO  mytable (Id,Name,Data,Kind,Expression)VALUES('4','1004','0','4','0')
 INSERT INTO  mytable (Id,Name,Data,Kind,Expression)VALUES('5','1005','0','5','0')
 INSERT INTO  mytable (Id,Name,Data,Kind,Expression)VALUES('6','1006','0','6','0')
