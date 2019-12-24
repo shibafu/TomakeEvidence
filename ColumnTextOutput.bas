@@ -1,64 +1,64 @@
-Attribute VB_name ="ColumnTextOutput"
-'ãƒ¯ãƒ¼ã‚¯ã‚·ãƒ¼ãƒˆã®é …ç›®åˆ—ã‚’ãƒ†ã‚­ã‚¹ãƒˆã«è‡ªå‹•å‡ºåŠ›ã™ã‚‹'
+Attribute VB_Name = "ColumnTextOutput"
+'ƒ[ƒNƒV[ƒg‚Ì€–Ú—ñ‚ğƒeƒLƒXƒg‚É©“®o—Í‚·‚é'
 
 Public Sub DataOutputText()
-Attribute DataOutputText.VB_ProcData. VB_Invoe_Func = "P\n14"
 
-'é¸æŠä¸­ã®ãƒ¯ãƒ¼ã‚¯ã‚·ãƒ¼ãƒˆã‚’é¸æŠã™ã‚‹ã€‚
-Dim ws AS Worksheet
-Set ws = Activesheet
+'‘I‘ğ’†‚Ìƒ[ƒNƒV[ƒg‚ğ‘I‘ğ‚·‚éB
+Dim ws As Worksheet
+Set ws = ActiveSheet
 
-'ãƒ•ã‚©ãƒ«ãƒ€ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’é–‹ãã€ãƒ•ã‚©ãƒ«ãƒ€ãƒ‘ã‚¹ã‚’å–å¾—ã™ã‚‹
+'ƒtƒHƒ‹ƒ_ƒ_ƒCƒAƒƒO‚ğŠJ‚«AƒtƒHƒ‹ƒ_ƒpƒX‚ğæ“¾‚·‚é
 Dim Path As String
 Path = get_folder()
 
-'ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã™ã‚‹
+'ƒtƒ@ƒCƒ‹ì¬ƒIƒuƒWƒFƒNƒg‚ğì¬‚·‚é
 Dim ObjFso As Object
 Set ObjFso = CreateObject("Scripting.FileSystemObject")
 
-'æ›¸ãè¾¼ã‚€ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã™ã‚‹
+'‘‚«‚Şƒtƒ@ƒCƒ‹‚ğì¬‚·‚é
 Dim OutputFile As String
 
-ObjFso.CreateTextFile(Path & "\" & ws.Name & ".txt")
+ObjFso.CreateTextFile (Path & "\" & ws.Name & ".txt")
 Output = Path & "\" & ws.Name & ".txt"
 
 Open OutputFile For Output As #1
 
-'ã‚·ãƒ¼ãƒˆåã‚’æ›¸ãå‡ºã—
-	Print #1, ws.Name
-	Print #1, '\r\n'
+'ƒV[ƒg–¼‚ğ‘‚«o‚µ
+    Print #1, ws.Name
+    Print #1, '\r\n'
 
-'6ç•ªç›®ã®åˆ—ã‚’ãƒ†ã‚­ã‚¹ãƒˆã«æ›¸ãå‡ºã—	
+'6”Ô–Ú‚Ì—ñ‚ğƒeƒLƒXƒg‚É‘‚«o‚µ
 Dim i As Long
 i = 1
 
 Do While ws.Cells(i + 10, 6).Value <> ""
-	Print #1 ws.Cells(i + 10, 6).Value
-	i = i + 1
+    Print #1 ws.Cells(i + 10, 6).Value
+    i = i + 1
 Loop
 
-'ãƒ†ã‚­ã‚¹ãƒˆã‚’é–‰ã˜ã‚‹
+'ƒeƒLƒXƒg‚ğ•Â‚¶‚é
 Close #1
-'å®Œäº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¡¨ç¤º
-MsgBox "ã‚¨ãƒ³ãƒ†ã‚£ãƒ†ã‚£ã®ä¸€è¦§å‡ºåŠ›ãŒçµ‚ã‚ã‚Šã¾ã—ãŸ"
+'Š®—¹ƒƒbƒZ[ƒW‚ğ•\¦
+MsgBox "ƒGƒ“ƒeƒBƒeƒB‚Ìˆê——o—Í‚ªI‚í‚è‚Ü‚µ‚½"
 
 End Sub
 
-Function get_folder AS String
-	Dim i AS Integer
-	Dim Path As String
-	
-	With Application.FileDialog(msoFileDialogFolderPicker)
-	.Title = "å‡ºåŠ›ãƒ•ã‚©ãƒ«ãƒ€ãƒ¼ã‚’é¸æŠ"
-	If Show = -1 Then
-		'é¸æŠã—ãŸãƒ•ã‚©ãƒ«ãƒ€ãƒ‘ã‚¹ã‚’æ–‡å­—åˆ—ã«æŒ¿å…¥ã™ã‚‹
-		Path = .SelectedItem(1)
-	Else
-		Exit Function
-	End If
-	
-	End With
-	
-	get_folder = Path
+Function get_folder() As String
+    Dim i As Integer
+    Dim Path As String
+    
+    With Application.FileDialog(msoFileDialogFolderPicker)
+    .Title = "o—ÍƒtƒHƒ‹ƒ_[‚ğ‘I‘ğ"
+    If Show = -1 Then
+        '‘I‘ğ‚µ‚½ƒtƒHƒ‹ƒ_ƒpƒX‚ğ•¶š—ñ‚É‘}“ü‚·‚é
+        Path = .SelectedItem(1)
+    Else
+        Exit Function
+    End If
+    
+    End With
+    
+    get_folder = Path
 
 End Function
+

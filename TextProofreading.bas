@@ -1,13 +1,14 @@
-Public Sub å­˜åœ¨ã—ã¦ã„ã‚‹ã‚‚ã®ã‚’æ•°ãˆã‚‹()
+Attribute VB_Name = "TextProofreading"
+Public Sub ‘¶İ‚µ‚Ä‚¢‚é‚à‚Ì‚ğ”‚¦‚é()
 
-    'ç¾åœ¨ã®å°åˆ·ç¯„å›²ã‚’ã‚»ãƒ«ã«ã—ã¦ã„
+    'Œ»İ‚Ìˆóü”ÍˆÍ‚ğƒZƒ‹‚É‚µ‚Ä‚¢
     Dim Worksheet As Worksheet
-    Set ws = ActiveWorksheet
+    Set ws = ActiveWorkSheet
 
     Dim PrintArea As String
     PrintArea = ws.PageSetup.PrintArea
     
-    'ç¾åœ¨ã®é¸æŠç¯„å›²ã®è¡Œã¨åˆ—ã‚’å–å¾—
+    'Œ»İ‚Ì‘I‘ğ”ÍˆÍ‚Ìs‚Æ—ñ‚ğæ“¾
     ws.Range(PrintArea).Activate
     
     

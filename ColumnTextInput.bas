@@ -1,57 +1,56 @@
-ColumnTextInput.bas
-
-Attribute VB_name = "ColumnTextInput"
+Attribute VB_Name = "ColumnTextInput"
 Public Sub DataInput()
-	'å‡ºåŠ›ã—ãŸãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¤‡æ•°é¸æŠ
-	Inputs = get_files()
-	
-	Dim ColumnTextNum As Integer
-	Dim Buffer As String
-	
-	'é–‹å§‹åˆ—ã‚’æŒ‡å®š,ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯Båˆ—ã‹ã‚‰
-	ColumnNum = 2
-	
-	'èª­ã¿è¾¼ã¿ãƒ•ã‚¡ã‚¤ãƒ«ãƒªã‚¹ãƒˆã‚’é–‹ããƒ«ãƒ¼ãƒ—
-	For Each Input_data In Inputs
-		If Input_data <> "" Then
-			Open Input_data For Input As #1
-			
-			Dim RawNum As Integer
-			RawNum = 1
-			
-			'èª­ã¿è¾¼ã¿ãƒ†ã‚­ã‚¹ãƒˆå–å¾—ãƒ«ãƒ¼ãƒ—
-			'è¡Œé ­ã«ã‚»ãƒ«ã‚’æ‰“ã¡è¾¼ã‚€
-			
-			Do Until EOF(1)
-				Line Input #1 , Buffer
-				ActiveSheet.Cells(RawNum, ColumnNum).Vaue = Buffer
-				RawNum = RawNum + 1
-			Loop
-			
-			Close #1
-			'åˆ—ã‚’ä¸€ã¤ãšã‚‰ã™
-		ColumnNum = ColumnNum + 1
-		End If			
-	Next Input_data
+    'o—Í‚µ‚½ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğ•¡”‘I‘ğ
+    Inputs = get_files()
+    
+    Dim ColumnTextNum As Integer
+    Dim Buffer As String
+    
+    'ŠJn—ñ‚ğw’è,ƒfƒtƒHƒ‹ƒg‚ÍB—ñ‚©‚ç
+    ColumnNum = 2
+    
+    '“Ç‚İ‚İƒtƒ@ƒCƒ‹ƒŠƒXƒg‚ğŠJ‚­ƒ‹[ƒv
+    For Each Input_data In Inputs
+        If Input_data <> "" Then
+            Open Input_data For Input As #1
+            
+            Dim RawNum As Integer
+            RawNum = 1
+            
+            '“Ç‚İ‚İƒeƒLƒXƒgæ“¾ƒ‹[ƒv
+            's“ª‚ÉƒZƒ‹‚ğ‘Å‚¿‚Ş
+            
+            Do Until EOF(1)
+                Line Input #1, Buffer
+                ActiveSheet.Cells(RawNum, ColumnNum).Vaue = Buffer
+                RawNum = RawNum + 1
+            Loop
+            
+            Close #1
+            '—ñ‚ğˆê‚Â‚¸‚ç‚·
+        ColumnNum = ColumnNum + 1
+        End If
+    Next Input_data
 End Sub
 
 Function get_files()
-	Dim i As Integer
-	Dim InputTextFiles(99)
-	
-	With Application.FileDialog(msoFileDialogFilePicker)
-		.Title = "ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠ"
-		.AllowMultiSelect = True
-		If .Show -1 Then
-			'è¤‡æ•°é¸æŠã‚’ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã«é…åˆ—ã‚’æŒ¿å…¥ã™ã‚‹
-			For i = 1 To .SelectItems.Count
-				InputTextFiles(i) = SelectItems(i)
-			Next i
-		Else
-			Exit Function
-		End If
-	End With
-	
-	get_files = InputTextFiles
+    Dim i As Integer
+    Dim InputTextFiles(99)
+    
+    With Application.FileDialog(msoFileDialogFilePicker)
+        .Title = "ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ğ‘I‘ğ"
+        .AllowMultiSelect = True
+        If .Show - 1 Then
+            '•¡”‘I‘ğ‚ğ‚µ‚½ƒtƒ@ƒCƒ‹‚É”z—ñ‚ğ‘}“ü‚·‚é
+            For i = 1 To .SelectItems.Count
+                InputTextFiles(i) = SelectItems(i)
+            Next i
+        Else
+            Exit Function
+        End If
+    End With
+    
+    get_files = InputTextFiles
 
 End Function
+
